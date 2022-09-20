@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\newArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +18,11 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [PostController::class, 'index'])->name('home.index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
 Route::get('/post/{id}', [PostController::class, 'show']);
+
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+Route::get('newArticle', [newArticleController::class, 'index'])->middleware(['auth'])->name('newArticle.index');
+Route::post('newArticle', [newArticleController::class, 'store'])->middleware(['auth'])->name('newArticle.store');
 
 require __DIR__.'/auth.php';

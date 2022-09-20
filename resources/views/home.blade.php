@@ -36,10 +36,14 @@ Carbon::setLocale('fr');
         <div class="w-2/5">
             <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-[90%] mx-auto">
                 <div class="p-5">
-                    <a href="#">
+                    <a href="/post/{{ $post->id }}">
                         <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">Postes les plus consultés :</h5>
                     </a>
-                    <p class="font-normal text-gray-700 mb-3">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+                    @foreach($mostViewed as $post)
+                    <a href="/post/{{ $post->id }}">
+                        <h6 class="text-gray-900 text-md tracking-tight mb-2">{{ $post->title }}</h6>
+                    </a>
+                    @endforeach
                 </div>
             </div>
     </body>
