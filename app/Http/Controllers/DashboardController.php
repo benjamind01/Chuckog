@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function index() {
         $views = Post::all()->sum('readingTimes');
         $numberOfArticles = Post::all()->count();
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('readingTimes', 'desc')->get();
 
         return view('dashboard', ['views' => $views, 'numberOfArticles' => $numberOfArticles, 'posts' => $posts]);
     }

@@ -29,7 +29,7 @@ Carbon::setLocale('fr');
                         <h5 class="text-gray-900 font-bold text-2xl tracking-tight">{{ $post->title }} </h5>
                     </a>
                     <span class="text-xs mb-1 text-gray-400">Publié {{ Carbon::parse($post->created_at)->shiftTimezone('Europe/Paris')->diffForHumans(); }} </span>
-                    <p class="font-normal text-gray-700 mb-3">{{ $post->content }}</p>
+                    <p class="font-normal text-gray-700 mb-3"> {!! nl2br(e($post->content)) !!} </p>
                 </div>
             </div>
         </div>

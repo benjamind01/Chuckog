@@ -70,7 +70,7 @@ Carbon::setLocale('fr');
                             <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-[70%]  mb-5">
                                 <div class="p-5">
                                     <a href="/post/{{ $post->id }}">
-                                        <h5 class="text-gray-900 font-bold text-2xl tracking-tight">{{ $post->title }} </h5>
+                                        <h5 class="text-gray-900 font-bold text-2xl tracking-tight">{{ $post->title . " " . "(" . $post->readingTimes . " vues)"}} </h5>
                                     </a>
                                     <span class="text-xs mb-1 text-gray-400">Publié {{ Carbon::parse($post->created_at)->shiftTimezone('Europe/Paris')->diffForHumans(); }} </span>
                                     <p class="font-normal text-gray-700 mb-3">{{ Str::limit($post->content, 160, "...") }}</p>

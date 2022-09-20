@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::orderBy('created_at', 'desc')->get();
+        $posts = Post::orderBy('created_at', 'DESC')->paginate(5);
 
         $postsMostViewed = Post::orderBy('readingTimes', 'desc')->limit(10)->get();
-
 
         
         return view('home', ['posts' => $posts, 'mostViewed' => $postsMostViewed]);
